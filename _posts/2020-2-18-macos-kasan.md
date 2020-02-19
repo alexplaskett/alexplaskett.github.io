@@ -132,7 +132,7 @@ Looking through the sources (san/kasan-test.c) we can see tests for the followin
 * Stack Use-After-Returns
 * Specific operations which could read/write OOB (memcpy, memmove, bcopy, memset, bcmp, bzero, strlcpy, strlcat, strncat)
 
-The KASAN checks can be enabled or disabled by setting the nvram variable 'kasan.checks', this is bitmask as follows:
+The KASAN checks can be enabled or disabled by setting the nvram boot-args variable to contain 'kasan.checks', this is bitmask as follows:
 
 ```c
 static unsigned enabled_checks = TYPE_ALL & ~TYPE_LEAK; /* bitmask of enabled checks */
