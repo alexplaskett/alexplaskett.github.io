@@ -4,7 +4,3 @@ title: About
 permalink: /about/
 ---
 
-TBC
-
-## Publications
-
