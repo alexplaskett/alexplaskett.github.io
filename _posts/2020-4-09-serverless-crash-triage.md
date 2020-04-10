@@ -78,7 +78,7 @@ One thing to note here is the usage of NEW_AND_OLD_IMAGES, this specifies:
 It is also important that we take a note of this stream ARN (as this will be used in the IAM policies):
 
 ```
-arn:aws:dynamodb:eu-west-2:***********:table/CrashesTable/stream/2020-02-25T16:22:27.122
+arn:aws:dynamodb:eu-west-2:***********:table/Crashes/stream/2020-02-25T16:22:27.122
 ```
 
 We can list the streams using the following API:
@@ -89,7 +89,7 @@ $ aws dynamodbstreams list-streams
 Then describe a stream as follows for more information on it:
 ```bash
 $ aws dynamodbstreams describe-stream \
-    --stream-arn arn:aws:dynamodb:eu-west-2:******:table/CrashesTable/stream/2020-04-07T12:57:19.229
+    --stream-arn arn:aws:dynamodb:eu-west-2:******:table/Crashes/stream/2020-04-07T12:57:19.229
 ```
 
 ## The Triage Lambda Itself
@@ -182,7 +182,7 @@ We also want to give the Lambda read/write access to DynamoDB. We also need to g
 				"dynamodb:PutItem",
 				"dynamodb:UpdateItem"
 			],
-			"Resource": "arn:aws:dynamodb:eu-west-1:123456789012:table/CrashesTable"
+			"Resource": "arn:aws:dynamodb:eu-west-1:123456789012:table/Crashes"
 		},
 		{
 			"Effect": "Allow",
