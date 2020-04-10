@@ -22,7 +22,7 @@ If we have this information at a glance, we can see if the crash would be good f
 
 We will assume the following simple hypothetical fuzzing architectural design:
 
-![Fuzzing High Level Architecture]({{site.url}}/assets/arch.svg)
+![Fuzzing High Level Architecture]({{site.url}}/images/arch.svg)
 
 In this architecture we will assume the following from each component:
 
