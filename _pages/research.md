@@ -10,9 +10,9 @@ The following security research was performed whilst at MWR InfoSecurity (now F-
 
 This research describes the vulnerabilities used for [Pwn2Own Desktop 2018](https://www.thezdi.com/blog/2018/3/15/pwn2own-2018-day-two-schedule) to compromise Apple macOS Safari. It describes the tools developed and the process taken in order to identify these vulnerabilities. The slides and whitepaper also describe the exploit development process and techniques used for exploitation of the vulnerabilities. The vulnerabilities described within these documents are a Wasm vulnerability (CVE-2018-4121), an SVG vulnerability (CVE-2018-4199) and a sandbox escape within the Dock component (CVE-2018-4196). 
 
-[Slides](https://github.com/alexplaskett/Publications/blob/master/apple-safari-pwn2own-vuln-write-up-2018-10-29-final.pdf)
+[Slides](https://github.com/alexplaskett/Publications/blob/master/mwri-t2-big-game-fuzzing-pwn2own-safari-final.pdf)
 
-[Whitepaper](https://github.com/alexplaskett/Publications/blob/master/mwri-t2-big-game-fuzzing-pwn2own-safari-final.pdf)
+[Whitepaper](https://github.com/alexplaskett/Publications/blob/master/apple-safari-pwn2own-vuln-write-up-2018-10-29-final.pdf)
 
 This research was performed by Fabian Beterke, Georgi Geshev and Alex Plaskett and presented at T2 2018. 
 
