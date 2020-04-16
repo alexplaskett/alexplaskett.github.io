@@ -8,34 +8,46 @@ This article will show some initial research into booting a KSAN kernel, testing
 
 KSAN is Apple's implementation of [AddressSanitizer](https://github.com/google/sanitizers/wiki/AddressSanitizer) within the kernel and is used to detect memory errors. 
 
-At the time of writing the dependancies for 10.15 have not been published on [Apple Opensource](https://opensource.apple.com/release/macos-1015.html) preventing building a KSAN kernel from source (EDIT: more sources were added yesterday so this might now be buildable!). However, a number of KDK builds have been published which include KASAN support. Unfortunately, there are no KDK builds for the stable release version of the OS. However, a developer build version kernel can be booted on the right version of a production macOS with a bit of hackery. For example, macOS 10.15.2 (19C57) can use KDK_10.15.2_19C39d.kdk kernel and successfully boot with no dependancy or symbol issues. 
+Apple has recently published "Kernel Debug Kit 10.15.4 build 19E287", which is actually the KDK for the latest production macOS version (10.15.4 Supplemental Updates) at the time of writing. In the past the KDK versions have often lagged to the current version or have only been available for beta builds. These build versions provide a good base for investigation into KASAN without having symbol issues to deal with due to mixed versions.   
 
-To do this the following steps can be taken to configure a VM to boot the kernel. 
+~~At the time of writing the dependancies for 10.15 have not been published on [Apple Opensource](https://opensource.apple.com/release/macos-1015.html) preventing building a KSAN kernel from source (EDIT: more sources were added yesterday so this might now be buildable!). However, a number of KDK builds have been published which include KASAN support. Unfortunately, there are no KDK builds for the stable release version of the OS. However, a developer build version kernel can be booted on the right version of a production macOS with a bit of hackery. For example, macOS 10.15.2 (19C57) can use KDK_10.15.2_19C39d.kdk kernel and successfully boot with no dependancy or symbol issues.~~ 
 
-The process for installing a kernel onto the VM is as follows:
+Within the KDK (/Library/Developer/KDKs/KDK_10.15.4_19E287.kdk/System/Library/Kernels/) we have the following versions of the kernel: 
+* kernel (release build)
+* kernel.debug (debug)
+* kernel.development (development)
+* kernel.kasan (kasan)
+
+As a quick check before deployment we can compare the existing production kernel hash against the release kernel in the KDK (and see they match):
+```
+3734120155ff70c7a05c1b46d26cc1622a6c46ff  /Library/Developer/KDKs/KDK_10.15.4_19E287.kdk/System/Library/Kernels/kernel
+3734120155ff70c7a05c1b46d26cc1622a6c46ff  /System/Library/Kernels/kernel
+``` 
+
+Now we can deploy both the kernels and IOKit drivers to the guest VM. After we have installed the KDK package onto the VM. The process for deploying and selecting the kasan kernel to boot is as follows (this requires SIP disabled):
 
 ```bash
 sudo mount -uw /
-sudo cp /Library/Developer/KDKs/KDK_10.15.2_19C39d.kdk/System/Library/Kernels/kernel.kasan /System/Library/Kernels/
-sudo cp -r /Library/Developer/KDKs/KDK_10.15.2_19C39d.kdk/System/Library/Extensions/ /System/Library/Extensions/
+sudo cp /Library/Developer/KDKs/KDK_10.15.4_19E287.kdk/System/Library/Kernels/kernel.kasan /System/Library/Kernels/
+sudo cp -r /Library/Developer/KDKs/KDK_10.15.4_19E287.kdk/System/Library/Extensions/ /System/Library/Extensions/
 sudo kextcache -invalidate /
-sudo nvram boot-args="-v keepsyms=1 debug=0x2444 -zp -zc kcsuffix=kasan"
+sudo nvram boot-args="-v keepsyms=1 debug=0x2444 kasan.checks=24576 -zp -zc kcsuffix=kasan"
 ```
 
 After rebooting into the kernel we should see we are running within the KASAN kernel (in uname -a output):
 
 ```bash
-Darwin boxname.local 19.2.0 Darwin Kernel Version 19.2.0: Sat Nov  9 05:51:40 PST 2019; root:xnu_kasan-6153.61.1~22/KASAN_X86_64 x86_64
+Darwin Mac.local 19.4.0 Darwin Kernel Version 19.4.0: Wed Mar  4 22:30:14 PST 2020; root:xnu_kasan-6153.101.6~12/KASAN_X86_64 x86_64
 ```
-It should be noted that within the KDK there are also kernel extensions compiled with KSAN. This can be very useful if analyzing a bug within a kernel extension which is provided. 
+It should be noted that within the KDK there are also IOKit kernel extensions compiled with KSAN. This can be very useful if analyzing a bug within a kernel extension which is provided. 
 
-To check that a KEXT is loaded with KASAN we can examined the UUID:
+To check that a KEXT is loaded with KASAN we can examined the UUID and check they match:
 
 ```bash
-boxname:KDK_10.15.2_19C39d.kdk user$ sudo kextstat | grep IOHID
-   52    3 0xffffff7f820b2000 0x1dc000   0x1dc000   com.apple.iokit.IOHIDFamily (2.0.0) EC1FBD0B-09AB-3480-A158-D32403587933 <19 8 7 6 5 3 2 1>
-boxname:KDK_10.15.2_19C39d.kdk user$ dwarfdump -u /Library/Developer/KDKs/KDK_10.15.2_19C39d.kdk/System/Library/Extensions/IOHIDFamily.kext/Contents/MacOS/IOHIDFamily_kasan
-UUID: EC1FBD0B-09AB-3480-A158-D32403587933 (x86_64) /Library/Developer/KDKs/KDK_10.15.2_19C39d.kdk/System/Library/Extensions/IOHIDFamily.kext/Contents/MacOS/IOHIDFamily_kasan
+$ sudo kextstat | grep IOHID
+   53    3 0xffffff7f820eb000 0x1e4000   0x1e4000   com.apple.iokit.IOHIDFamily (2.0.0) 9DAEAA3D-2F24-31D1-9065-EB5871936466 <17 8 7 6 5 3 2 1>
+$ dwarfdump -u /Library/Developer/KDKs/KDK_10.15.4_19E287.kdk/System/Library/Extensions/IOHIDFamily.kext/Contents/MacOS/IOHIDFamily_kasan
+UUID: 9DAEAA3D-2F24-31D1-9065-EB5871936466 (x86_64) /Library/Developer/KDKs/KDK_10.15.4_19E287.kdk/System/Library/Extensions/IOHIDFamily.kext/Contents/MacOS/IOHIDFamily_kasan
 ```
 
 And we can check that KASAN is loaded correctly by examining 'sysctl kern.kasan.available' which should be 1 if running under KASAN.
@@ -44,8 +56,8 @@ There are a number of other sysctl's which describe kasan's operation and can be
 
 ```bash
 boxname:~ user$ sysctl -a | grep kasan
-kern.version: Darwin Kernel Version 19.2.0: Sat Nov  9 05:51:40 PST 2019; root:xnu_kasan-6153.61.1~22/KASAN_X86_64
-kern.bootargs: -v keepsyms=1 -zp -zc kcsuffix=kasan
+kern.version: Darwin Kernel Version 19.4.0: Wed Mar  4 22:30:14 PST 2020; root:xnu_kasan-6153.101.6~12/KASAN_X86_64
+kern.bootargs: -v keepsyms=1 debug=0x2444 -zp -zc kcsuffix=kasan
 kern.kasan.available: 1
 kern.kasan.enabled: 1
 kern.kasan.checks: 4294901759
@@ -54,7 +66,7 @@ kern.kasan.report_ignored: 0
 kern.kasan.free_yield_ms: 0
 kern.kasan.leak_threshold: 3
 kern.kasan.leak_fatal_threshold: 0
-kern.kasan.memused: 23608
+kern.kasan.memused: 22871
 kern.kasan.memtotal: 131074
 kern.kasan.kexts: 15
 kern.kasan.debug: 0
@@ -70,7 +82,6 @@ We can test KASAN is functioning like so:
 ```bash
 sudo sysctl -w kern.kasan.test=100 (Test double free)
 ```
-
 We should then see the following crash:
 
 ```bash
@@ -119,7 +130,7 @@ panic(cpu 1 caller 0xffffff8020720209): "KASan: free of corrupted/invalid object
  fffff7f005a79b60: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
 ```
 
-Looking through the sources (san/kasan-test.c) we can see tests for the following:
+Looking through the sources for 10.15 (san/kasan-test.c) we can see tests for the following:
 * Global Overflows
 * Heap Underflows
 * Heap Overflows
@@ -257,7 +268,7 @@ It is possible to dump the ubsan log file using 'sysctl kern.ubsan.log'.
 
 Having code coverage feedback information exposed from the kernel allows for coverage guided based fuzzing.  On KASAN kernel builds, there is a driver interface exposed for KSANCOV called '/dev/ksancov'. The implementation for this is within san/ksan.c source file. 
 
-There is also a test utility within san/tools/ksancov.c which can be used to obtain the information from the running kernel. 
+There is also a test utility within san/tools/ksancov.c which can be used to obtain the information from the running kernel (provided it is built correctly!). 
 
 The general process for a userspace program to obtain coverage data from the kernel is as follows:
 
@@ -274,5 +285,20 @@ The general process for a userspace program to obtain coverage data from the ker
  */
 ```
 
-Further research is needed in this area to understand if this can be used on pre-built kernels or if full recompliation is required to add full support. This post will be updated to reflect that. 
+Unfortunately, with the KASAN kernel binary from the KDK it is not built with KSANCOV support. Therefore, it would be necessary to build this kernel from source to use KSANCOV. 
 
+```c
+ifeq ($(KSANCOV),1)
+# Enable SanitizerCoverage instrumentation in xnu
+SAN = 1
+KSANCOV_CFLAGS := -fsanitize-coverage=trace-pc-guard
+CFLAGS_GEN += $(KSANCOV_CFLAGS) -DKSANCOV=1
+endif
+
+Symbols not present in kernel.kasan binary:
+
+```c
+___sanitizer_cov_trace_pc_guard
+___sanitizer_cov_trace_pc_guard_init
+___sancov.module_ctor_trace_pc_guard
+```
