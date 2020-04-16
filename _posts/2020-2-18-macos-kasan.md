@@ -77,10 +77,10 @@ kern.kasan.fakestack: 0
 kern.kasan.test: 0
 kern.kasan.fail: 0
 ```
-We can test KASAN is functioning like so:
+We can test KASAN is functioning like so (Test double free):
 
 ```bash
-sudo sysctl -w kern.kasan.test=100 (Test double free)
+sudo sysctl -w kern.kasan.test=100
 ```
 We should then see the following crash:
 
