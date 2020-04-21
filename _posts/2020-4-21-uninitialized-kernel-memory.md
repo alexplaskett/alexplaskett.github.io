@@ -145,11 +145,11 @@ kasan_report_leak(vm_address_t base, vm_size_t sz, vm_offset_t offset, vm_size_t
 	}
 
 	DTRACE_KASAN5(leak_detected,
-				  vm_address_t, base,      // arg0
-				  vm_size_t, sz,           // arg1 
-				  vm_offset_t, offset,     // arg2  (a2, 9f etc)
-				  vm_size_t, leak_sz,      // arg3  (0x3)
-				  char *, string_rep);     // arg4  (address)
+				  vm_address_t, base,      
+				  vm_size_t, sz,           
+				  vm_offset_t, offset,     
+				  vm_size_t, leak_sz,      
+				  char *, string_rep);    
 }
 ```
 
@@ -195,6 +195,6 @@ kasan::kasan_check_uninitialized:leak_detected
 }
 ```
 
-Since we are looking for uninitialized memory bugs which are easily reproducable, what we could also do would be to modify any output recieved by a fuzzer to detect the fill pattern (0xbe). For example, a common location would be [IOConnectCallMethod](https://developer.apple.com/documentation/iokit/1514240-ioconnectcallmethod?language=objc) output and outputStruct values. An example of such a leak is [CVE-2015-5864 - Heap Info Leak](https://github.com/jndok/tpwn-bis/blob/cb7760c587d7080545fc98d0a4d42b802f5de62e/poc-1/pwn.m#L25) where a kernel address was being leaked to userspace.   
+Since we are looking for uninitialized memory bugs which are easily reproducable, what we could also do would be to modify any output received by a fuzzer to detect the fill pattern (0xbe). For example, a common location would be [IOConnectCallMethod](https://developer.apple.com/documentation/iokit/1514240-ioconnectcallmethod?language=objc) output and outputStruct values. An example of such a leak is [CVE-2015-5864 - Heap Info Leak](https://github.com/jndok/tpwn-bis/blob/cb7760c587d7080545fc98d0a4d42b802f5de62e/poc-1/pwn.m#L25) where a kernel address was being leaked to userspace.   
 
 The downside with this approach is that you really need to cover all the possible wrappers which use ```copyout```. Therefore using both the dtrace technique and some manual effort to locate the right areas to audit, we can discover when uninitialized data is being copied into userspace. Then we can drop to kernel debugging to confirm the issue.  
