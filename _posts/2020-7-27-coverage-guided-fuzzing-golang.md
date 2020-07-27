@@ -10,7 +10,7 @@ Recently I had the need to explore coverage guided fuzzing in [Go](https://golan
 
 To build secure and resilient systems, then it is important it is important to have the tools available to detect issues in code. Humans are not good at identifying complex edge cases and perform reasoning under assumptions when writing code. For many years fuzzing has been commonly used to find bugs within programs written in C/C++, however, only recently these techniques have been started to get applied more to managed languages (Go/Rust/Swift etc). As these languages offer memory safety, fuzzing managed languages leads to other bug classes being identified. In Go this typically exhibits in either a panic, crash of the program, out of memory condition or a hang. There is also the technique of differential fuzzing, where providing the same input to a set of similar programs and observing the results, can lead to semantic or logic bugs being discovered. This article focuses on the former and the tools which can be used to find these issues in Go programs. 
 
-Whilst I was looking into this area a new draft design for the Go language to integrate fuzzing as a first class citizen was published. This [Draft design](golang.org/s/draft-fuzzing-design) is still under discussion and the aim of it is to collect feedback before an intended proposal. Perhaps one day there will be fuzzing as a first class citizen within Go, however, until then a more custom approach will likely need to be used. 
+Whilst I was looking into this area a new draft design for the Go language to integrate fuzzing as a first class citizen was published. This [Draft design](https://golang.org/s/draft-fuzzing-design) is still under discussion and the aim of it is to collect feedback before an intended proposal. Perhaps one day there will be fuzzing as a first class citizen within Go, however, until then a more custom approach will likely need to be used. 
 
 # Fuzzers
 
@@ -69,4 +69,4 @@ There are also a number of hosted continious fuzzing services which support Go f
 * [fuzzit.dev](https://fuzzit.dev/)
 * [fuzzbuzz.io](https://fuzzbuzz.io/)
 
-As these services are "fuzzing as a service", I have not had to chance to use them, however, deserve a mention as continious fuzzing platform providers. 
+As these services are "fuzzing as a service" I have not had to chance to use them, however they deserve a mention as continious fuzzing platform providers. 
