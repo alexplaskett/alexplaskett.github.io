@@ -12,7 +12,7 @@ Some of the commonly asked questions asked are:
 * What topics do you think are worth researching?
 * How do you approach a new topic initially?  
 
-There is no one size fits all answer for this and a lot of this post is just what works for me. However, there are some key points to consider and tips to give. This is mainly written from the perspective of a non-academic offensive security researcher, who has done security research both for a free time hobby and as a career. [XPN](https://twitter.com/_xpn_/status/1515987957894848513) started a twitter thread on this recently and this just goes to show how varying sources of motivation inspire others. [Yarden Shafir](https://medium.com/@yardenshafir2/security-research-and-the-creative-process-552fd91f52a7) also detailed the creativty in security research.  
+There is no one size fits all answer for this and a lot of this post is just what works for me. However, there are some key points to consider and tips to give. This is mainly written from the perspective of a non-academic offensive security researcher, who has done security research both for a free time hobby and as a career. [XPN](https://twitter.com/_xpn_/status/1515987957894848513) started a twitter thread on this recently and this just goes to show how varying sources of motivation inspire others. [Yarden Shafir](https://medium.com/@yardenshafir2/security-research-and-the-creative-process-552fd91f52a7) also detailed the creativity in security research.  
 
 From a career perspective, I also think this is one of the paths which is less clear to get into and what exactly "security research" is. There's also a wide variety of what you would call "security research". Some do this entirely in their free time, others dedicate certain time components to it and others are fortunate to have it as their full time career. There's also the fact that this spans from something like bug hunting to all the way to academic publications and professorships. Regardless of what you consider security research to be, there are some key takeaways when working on more novel security areas. 
 
@@ -134,7 +134,7 @@ Some good public examples of these which accept PRs are:
 
 # Background Research 
 
-The first thing I do when embarking on a new research project is review all the material which is already out there on that subject. As an example, recently I had been working on Windows Kernel exploitation, so going through recent conference presentations, whitepapers and blog posts to understand whats already out there was super important. As I had more reccently been looking at macOS related stuff, my windows knowledge was a little rusty and its pretty hard to carry around multiple platforms security aspects in your head at all times =)    
+The first thing I do when embarking on a new research project is review all the material which is already out there on that subject. As an example, recently I had been working on Windows Kernel exploitation, so going through recent conference presentations, whitepapers and blog posts to understand whats already out there was super important. As I had more recently been looking at macOS related stuff, my windows knowledge was a little rusty and it's pretty hard to carry around multiple platforms security aspects in your head at all times =)    
 
 Some of the main sources of information I use are:
 1. Conference output 
