@@ -12,7 +12,7 @@ Some of the commonly asked questions asked are:
 * What topics do you think are worth researching?
 * How do you approach a new topic initially?  
 
-There is no one size fits all answer for this and a lot of this post is just what works for me. However, there are some key points to consider and tips to give. This is mainly written from the perspective of a non-academic offensive security researcher, who has done security research both for a free time hobby and as a career. [Xpn](https://twitter.com/_xpn_/status/1515987957894848513) started a twitter thread on this recently and this just goes to show how varying sources of motivation inspire others. [Yarden Shafir](https://medium.com/@yardenshafir2/security-research-and-the-creative-process-552fd91f52a7) also detailed the creativty in security research.  
+There is no one size fits all answer for this and a lot of this post is just what works for me. However, there are some key points to consider and tips to give. This is mainly written from the perspective of a non-academic offensive security researcher, who has done security research both for a free time hobby and as a career. [XPN](https://twitter.com/_xpn_/status/1515987957894848513) started a twitter thread on this recently and this just goes to show how varying sources of motivation inspire others. [Yarden Shafir](https://medium.com/@yardenshafir2/security-research-and-the-creative-process-552fd91f52a7) also detailed the creativty in security research.  
 
 From a career perspective, I also think this is one of the paths which is less clear to get into and what exactly "security research" is. There's also a wide variety of what you would call "security research". Some do this entirely in their free time, others dedicate certain time components to it and others are fortunate to have it as their full time career. There's also the fact that this spans from something like bug hunting to all the way to academic publications and professorships. Regardless of what you consider security research to be, there are some key takeaways when working on more novel security areas. 
 
@@ -93,17 +93,18 @@ There is also this concept of deep work vs shallow work. Deep work is the abilit
 Having a good set of tangible practical goals for what you want to achieve is beneficial. However, I think you need to set these goals at a level which is appropriate and your existing knowledge level and experience. The goals need to be something which challenges you and are by no means guaranteed to be successful.
 
 For someone just starting out in their research path then examples could be: 
-1) Publish an article on a blog. 
-2) Release a tool to do X. 
-3) Find an 0day in software Y. 
+
+1. Publish an article on a blog. 
+2. Release a tool to do X. 
+3. Find an 0day in software Y. 
 
 Some examples of harder research goals could be:
 
-1) Present your research at the top technical conf's in the industry.  
-2) Write a book on the subject
-3) Win Pwn2own in the X category. 
-4) Aim to win a high prize in a top bug bounty (e.g. a perceived hard target).  
-5) Develop a mitigation for X class of vulnerability 
+1. Present your research at the top technical conf's in the industry.  
+2. Write a book on the subject
+3. Win Pwn2own in the X category. 
+4. Aim to win a high prize in a top bug bounty (e.g. a perceived hard target).  
+5. Develop a mitigation for X class of vulnerability 
 
 Ultimately if you set your goals correctly and achieve them, then on the way there you will experience skills growth. 
 
@@ -148,10 +149,8 @@ In part 1 of this blog, I hope I raised some useful points and have helped demys
 
 # References
 
-[1] Mark Dowd OffensiveCon Presentation 
+[1] Mark Dowd - [OffensiveCon Key Note](https://www.slideshare.net/MarkDowd13/rules-to-hack-by-offensivecon-2022-keynote-251318003?qid=c6ba0071-d766-4694-9fc1-ca2dc1c1ea03&v=&b=&from_search=1) 
 
-https://www.slideshare.net/MarkDowd13/rules-to-hack-by-offensivecon-2022-keynote-251318003?qid=c6ba0071-d766-4694-9fc1-ca2dc1c1ea03&v=&b=&from_search=1
+[2] Yarden Shafir - [Security Research and the creative process](https://medium.com/@yardenshafir2/security-research-and-the-creative-process-552fd91f52a7)
 
-[2] Yarden Shafir - https://medium.com/@yardenshafir2/security-research-and-the-creative-process-552fd91f52a7
-
-[3] XPN - https://twitter.com/_xpn_/status/1515987957894848513
+[3] XPN - [ramdom twitter thread](https://twitter.com/_xpn_/status/1515987957894848513)
