@@ -22,7 +22,7 @@ I will aim to cover the first two points in this article, part 2 will cover the 
 
 Probably the most important thing when embarking on security research is what topic should this be in? 
 
-Here are some key areas which may help guide this train of thought:  
+Here are some key areas which may help guide this train of thought.  
 
 ## Enjoyment 
 
