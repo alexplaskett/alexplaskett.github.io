@@ -153,4 +153,4 @@ In part 1 of this blog, I hope I raised some useful points and have helped demys
 
 [2] Yarden Shafir - [Security Research and the creative process](https://medium.com/@yardenshafir2/security-research-and-the-creative-process-552fd91f52a7)
 
-[3] XPN - [ramdom twitter thread](https://twitter.com/_xpn_/status/1515987957894848513)
+[3] XPN - [random twitter thread](https://twitter.com/_xpn_/status/1515987957894848513)
