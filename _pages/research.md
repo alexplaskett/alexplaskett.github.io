@@ -4,6 +4,47 @@ title: Research
 permalink: /research/
 ---
 
+The following security research was performed whilst at NCC Group between 2021-now. 
+
+## Toner Deaf – Printing your next persistence
+
+In November 2021, NCC Group won at the Pwn2Own hacking contest against a Lexmark printer. This talk is about the journey from purchase of the printer, having zero knowledge of its internals, remotely compromising it using a vulnerability which affected 235 models, developing a persistence mechanism and more.
+
+This talk is particularly relevant due to printers having access to a wide range of documents within an organisation, the printers often being connected to internal/sensitive parts of a network, their lack of detection/monitoring capability and often poor firmware update management processes.
+
+[Toner Deaf – Printing your next persistence](https://research.nccgroup.com/wp-content/uploads/2022/10/toner-deaf-hexacon-2022-release.pdf)
+
+This research was performed by Alex Plaskett, Cedric Halbronn, Aaron Adams, Catalin Visinescu and presented at [Hexacon 2022](https://www.hexacon.fr/conference/speakers/#toner_deaf).
+
+##  Pwn2Own 2021 - Remotely Exploiting 3 Embedded Devices
+
+This research demonstrates the process taken and vulnerabilities used for [Pwn2Own Austin 2021]([https://www.thezdi.com/blog/2017/11/2/the-results-mobile-pwn2own-2017-day-two](https://www.zerodayinitiative.com/blog/2021/11/1/pwn2ownaustin)) which were used to compromise a Western Digital PR4100 NAS, a Lexmark MC3224i and outside of the competition a Netgear R6700v3.   
+
+[Remotely Exploiting 3 Embedded Devices Slides](https://research.nccgroup.com/wp-content/uploads/2022/07/pwn2own-3-bugs-technical-external.pdf)
+
+[How to win $$$ at a hacking contest? Slides](https://research.nccgroup.com/wp-content/uploads/2022/07/pwn2own-how-to-win-external.pdf)
+
+[Western Digital Blog](https://research.nccgroup.com/2022/03/24/remote-code-execution-on-western-digital-pr4100-nas-cve-2022-23121/)
+
+[Lexmark MC3224i Blog](https://research.nccgroup.com/2022/02/18/analyzing-a-pjl-directory-traversal-vulnerability-exploiting-the-lexmark-mc3224i-printer-part-2/)
+
+[Netgear R6700v3 Blog](https://research.nccgroup.com/2022/02/28/brokenprint-a-netgear-stack-overflow/)
+
+This research was performed by Alex Plaskett, Cedric Halbronn, Aaron Adams, Catalin Visinescu and presented at NCC Con Europe 2021. 
+
+## Pwning the Windows 10 Kernel with NTFS and WNF
+
+A local privilege escalation vulnerability (CVE-2021-31956) 0-day was identified as being exploited in the wild by Kaspersky. At the time it affected a broad range of Windows versions (right up to the latest and greatest of Windows 10). With no access to the exploit or details of how it worked other than a vulnerability summary the following plan was enacted:
+
+1. Understand how exploitable the issue was in the presence of features such as the Windows 10 Kernel Heap-Backed Pool (Segment Heap).
+2. Determine how the Windows Notification Framework (WNF) could be used to enable novel exploit primitives.
+3. Understand the challenges an attacker faces with modern kernel pool exploitation and what factors are in play to reduce reliability and hinder exploitation.
+4. Gain insight from this exploit which could be used to enable detection and response by defenders.
+
+The talk covered the above key areas and provides a detailed walk through, moving from introducing the subject, all the way up to the knowledge which is needed for both offense and defence on modern Windows versions.
+
+[Slides](https://research.nccgroup.com/wp-content/uploads/2021/11/poc_2021_pwning_the_windows10_kernel_final_slides.pdf)
+
 The following security research was performed whilst at MWR InfoSecurity (now F-Secure Consulting) between 2011-2018.
 
 ## Big Game Fuzzing - Pwn2Own Apple Safari
