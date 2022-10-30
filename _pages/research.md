@@ -14,6 +14,8 @@ This talk is particularly relevant due to printers having access to a wide range
 
 [Toner Deaf – Printing your next persistence](https://research.nccgroup.com/wp-content/uploads/2022/10/toner-deaf-hexacon-2022-release.pdf)
 
+[Video](https://www.youtube.com/watch?v=TUHcZptN6Jk) 
+
 This research was performed by Alex Plaskett, Cedric Halbronn, Aaron Adams, Catalin Visinescu and presented at [Hexacon 2022](https://www.hexacon.fr/conference/speakers/#toner_deaf).
 
 ##  Pwn2Own 2021 - Remotely Exploiting 3 Embedded Devices
