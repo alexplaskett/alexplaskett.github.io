@@ -12,7 +12,7 @@ In November 2021, NCC Group won at the Pwn2Own hacking contest against a Lexmark
 
 This talk is particularly relevant due to printers having access to a wide range of documents within an organisation, the printers often being connected to internal/sensitive parts of a network, their lack of detection/monitoring capability and often poor firmware update management processes.
 
-[Toner Deaf – Printing your next persistence](https://research.nccgroup.com/wp-content/uploads/2022/10/toner-deaf-hexacon-2022-release.pdf)
+[Slides](https://research.nccgroup.com/wp-content/uploads/2022/10/toner-deaf-hexacon-2022-release.pdf)
 
 [Video](https://www.youtube.com/watch?v=TUHcZptN6Jk) 
 
