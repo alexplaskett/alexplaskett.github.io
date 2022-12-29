@@ -24,7 +24,7 @@ He also release the exploit for it [here](https://github.com/0x36/weightBufs)
 
 ## Tales from the iOS/macOS Kernel Trenches from Zer0con 2022 ([@jaakerblom](https://twitter.com/jaakerblom))
 
-https://github.com/potmdehex/slides/blob/main/Zer0Con_2022_Tales_from_the_iOS_macOS_Kernel_Trenches.pdf
+[https://github.com/potmdehex/slides/blob/main/Zer0Con_2022_Tales_from_the_iOS_macOS_Kernel_Trenches.pdf](https://github.com/potmdehex/slides/blob/main/Zer0Con_2022_Tales_from_the_iOS_macOS_Kernel_Trenches.pdf)
 
 This talk covers some recent vulnerabilities patched within macOS/iOS. Specifically multiple issues in IOMobileFramebuffer and one in the XNU kernel itself. 
 
@@ -107,7 +107,7 @@ This was a regression (iOS 13 and below not affected).
 
   ** installHax - Wasn't fully [patched](https://github.com/pinauten/Fugu15/tree/master/Tools/installHaxx) at the time. 
 
-The code for this exploit is [here](https://github.com/pinauten/Fugu15/tree/master/Exploits/fastPath_
+The code for this exploit is [here](https://github.com/pinauten/Fugu15/tree/master/Exploits/fastPath)
 
 This gets arb code exec on the device. 
 
