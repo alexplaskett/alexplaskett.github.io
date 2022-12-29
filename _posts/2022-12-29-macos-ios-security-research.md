@@ -12,7 +12,7 @@ In this post I will cover some of the presentations I found most interesting fro
 
 ## Apple Neural Engine from POC 2022 ([@_simo36](https://twitter.com/_simo36))
 
-https://github.com/0x36/weightBufs/blob/main/attacking_ane_poc2022.pdf
+[https://github.com/0x36/weightBufs/blob/main/attacking_ane_poc2022.pdf](https://github.com/0x36/weightBufs/blob/main/attacking_ane_poc2022.pdf)
 
 The Apple Neural Engine is the name for the energy efficient and high-throughput engine for Machine Learning inference on Apple Silicon. There has been previous security research into this by [Wish Wu](https://i.blackhat.com/asia-21/Friday-Handouts/as21-Wu-Apple-Neural_Engine.pdf) which describes the architecture and different components within both the software and hardware stack. _simo36's research sets the background on the frameworks and tooling which is used to interface with the engine and the IPC communication mechanisms used. It then describes the compiler used to build ML models and the pipeline used. The kernel interface is then documented with all its attack surface and shows the path right through from userland to kernel, then to firmware. 
 
@@ -20,7 +20,7 @@ _simo36 found a significant number of vulnerabilities within different component
 
 The talk then moves into exploitation and building an arbitrary r/w primitive by chaining together 4 different vulnerabilities. 
 
-He also release the exploit for it here https://github.com/0x36/weightBufs
+He also release the exploit for it [here](https://github.com/0x36/weightBufs)
 
 ## Tales from the iOS/macOS Kernel Trenches from Zer0con 2022 ([@jaakerblom](https://twitter.com/jaakerblom))
 
@@ -51,14 +51,14 @@ The talk then goes into discussing the different "capabilities" an exploit devel
 * How to know where controlled kernel memory is. 
 
 The next section details exploitation of the following CVE's:
-* CVE-2021-30883 - Using IOSurfaceClient technique (vuln described in https://saaramar.github.io/IOMFB_integer_overflow_poc/)
-* CVE-2021-30937 - multicast_bytecopy (https://github.com/potmdehex/multicast_bytecopy)
+* CVE-2021-30883 - Using IOSurfaceClient technique ([vuln](https://saaramar.github.io/IOMFB_integer_overflow_poc/))
+* CVE-2021-30937 - [multicast_bytecopy](https://github.com/potmdehex/multicast_bytecopy)
 
 The final section focuses on recent kernel mitigations on iOS 15.2-15.5 and how these can hinder an attacker. 
  
 ## Understanding Mach IPC from MOSEC 2022 ([@realBrightiup](https://twitter.com/realBrightiup/))
 
-https://github.com/brightiup/Trekking/tree/main/Slides
+[https://github.com/brightiup/Trekking/tree/main/Slides](https://github.com/brightiup/Trekking/tree/main/Slides)
 
 This talk starts with a Case Study of Project Zero's issue 2107. A type confusion within the turnstiles leading to the kernel treating a `host_notify_entry` as an `ipc_port`. 
 
@@ -72,7 +72,7 @@ I am not going to cover this one in detail, as Mach IPC is complex and the slide
 
 ## AppleAVD from Hexacon 2022 ([@isciurus](https://twitter.com/isciurus/) [@NikitaTarakanov](https://twitter.com/NikitaTarakanov/)) 
 
-https://github.com/isciurus/hexacon2022_AppleAVD/blob/main/hexacon2022_AppleAVD.pdf
+[https://github.com/isciurus/hexacon2022_AppleAVD/blob/main/hexacon2022_AppleAVD.pdf](https://github.com/isciurus/hexacon2022_AppleAVD/blob/main/hexacon2022_AppleAVD.pdf)
 
 This talk is about the Video decoding subsystem called AppleAVD. The talk starts off with an overview of the architecture and how the components fit together. The main focus of the talk is on the kernel component AppleAVD kext. The talk goes through analysis of this kext, the decoders implemented for parsing media within kernel space. The attack surface of the kext is analysed with its entry points and methods used for decoding / processing media. 
 
@@ -86,9 +86,9 @@ At the time of writing it seemed they didn't find any vulnerabilities within the
 
 This talk covers the creation of a jailbreak for iOS 15 (including 15.2 and up). Creation of a jailbreak has become significantly more difficult where one kernel vulnerability was previously enough, now PAC and PPL bypasses are required as well. The talk describes the vulnerabilities used in Fugu15, how the kernel exploit works and PAC and PPL bypasses. It also covers new mitigations introduced in 15.2, what effect these have on jailbreaking and how these were bypassed in Fugu15. 
 
-https://www.youtube.com/watch?v=rPTifU1lG7Q
+[Youtube Video](https://www.youtube.com/watch?v=rPTifU1lG7Q)
 
-https://github.com/pinauten/Fugu15
+[Code](https://github.com/pinauten/Fugu15)
 
 Notes on the four vulnerabilities used were as follows:
 
@@ -105,9 +105,9 @@ The vuln is that the flags are taken directly from the certificate (AppStore OID
 
 This was a regression (iOS 13 and below not affected). 
 
-  ** installHax - Wasn't fully patched (https://github.com/pinauten/Fugu15/tree/master/Tools/installHaxx). 
+  ** installHax - Wasn't fully [patched](https://github.com/pinauten/Fugu15/tree/master/Tools/installHaxx) at the time. 
 
-The code for this exploit is here: https://github.com/pinauten/Fugu15/tree/master/Exploits/fastPath
+The code for this exploit is [here](https://github.com/pinauten/Fugu15/tree/master/Exploits/fastPath_
 
 This gets arb code exec on the device. 
 
@@ -126,7 +126,7 @@ Exploitation:
 
 However, on 15.2+ there are still mitigations which hinder full usage of the arb kernel r/w. Linus then goes on to talk about how he bypassed these as well with the following two vulnerabilities. 
 
-The code for this exploit is here: https://github.com/pinauten/Fugu15/tree/master/Exploits/oobPCI
+The code for this exploit is [here](https://github.com/pinauten/Fugu15/tree/master/Exploits/oobPCI)
 
 ### badRecovery (CFI/PAC bypass)
 
@@ -165,7 +165,7 @@ The talk finishes off by demo'ing the exploit.
 
 ## The Journey To Hybrid Apple Driver Fuzzing from POC 2022 ([@Peterpan0927](https://twitter.com/Peterpan0927/))
 
-https://github.com/star-sg/Presentations/blob/main/POC%202022/Zhenpeng%20Pan.pdf
+[https://github.com/star-sg/Presentations/blob/main/POC%202022/Zhenpeng%20Pan.pdf](https://github.com/star-sg/Presentations/blob/main/POC%202022/Zhenpeng%20Pan.pdf)
 
 The talk starts off by covering Apple Security Enhancements from a high level for the XNU kernel and the fact that these mitigations make exploiting UAF and type confusion much harder or unexploitable in certain scenarios. Therefore proposed that drivers will be a much more valuable target than before. 
 
@@ -175,11 +175,11 @@ He found multiple bugs this way, such as CVE-2021-30923/CVE-2022-22661/CVE-2022-
 
 Finally he covered some details of non public bugs found by the fuzzer and future plans together with an vulnerability which gives a 100% stable info leak of the kernel slide on macOS 13 together with a novel info leak attack surface. 
 
-This talk was interesting for me, as back in 2017 (https://github.com/alexplaskett/Publications/blob/master/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf) I developed a fuzzer using similar hybrid approaches which was also effective in finding multiple issues in the kernel. However, this talk highlights recent vuln's found and the code patterns which can be implemented in the fuzzer or reviewed for to find.   
+This talk was interesting for me, as back in 2017 [slides](https://github.com/alexplaskett/Publications/blob/master/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf) I developed a fuzzer using similar hybrid approaches which was also effective in finding multiple issues in the kernel. However, this talk highlights recent vuln's found and the code patterns which can be implemented in the fuzzer or reviewed for to find.   
 
 ## Abusing iPhone coprocessors for Privilege Escalation at OBTS ([@i41nbeer](https://twitter.com/i41nbeer/))
 
-https://www.youtube.com/watch?v=H5oz1U03U1Q
+[Youtube video](https://www.youtube.com/watch?v=H5oz1U03U1Q)
 
 We are starting to see much more interest into the separate co-processors, peripherals or firmware recently on mobile devices. This includes in-the-wild attacks. Ian's talk provided a technical deep-dive into how this in-the-wild exploit escaped the iPhone sandbox via a novel 0-day in the custom Apple co-processor. 
 
@@ -187,7 +187,7 @@ We are starting to see much more interest into the separate co-processors, perip
 * Curious attack because it looked like the mobile network data was actually being disconnected via the operator. 
 * Reversing the application showed that it was containing multiple exploits (including public ones from GitHub etc). sock_puppet, time_waste, lio_listio, AVE decoder
 * However, contained two more 0-day exploits (when the sample was found).. 
-  * CVE-2021-30883 (https://saaramar.github.io/IOMFB_integer_overflow_poc/)
+  * [CVE-2021-30883](https://saaramar.github.io/IOMFB_integer_overflow_poc/)
 * And the DCP 0-day the talk was about.. (CVE-2021-30883)
 
 * Exploit had a bunch of printf statements in it which hinted how it worked, especially DCP (display co-processor) which handles low level display stuff on a separate piece of Apple silicon. 
@@ -206,7 +206,7 @@ We are starting to see much more interest into the separate co-processors, perip
 
 Then finally he talks about the actual vulnerability itself:
 * Uniformity Compensation 
-* Memory corruption described here https://googleprojectzero.blogspot.com/2022/06/curious-case-carrier-app.html
+* Memory corruption described [here](https://googleprojectzero.blogspot.com/2022/06/curious-case-carrier-app.html)
 * Mitigations regression or engineering trade-off's moving onto low powered cores.  
 * DCP/AVE/SEP/AOP/U1/AGX/ANE/BLE/WiFi (other co-processors / dedicated radio hardware etc) 
 
@@ -214,5 +214,5 @@ Then finally he talks about the actual vulnerability itself:
 
 There are some other talks I didn't have time to cover in this issue but are also worth checking out. 
 
-* Life and death of an iOS attacker by [Luca Todesco](https://twitter.com/qwertyoruiopz) - https://www.youtube.com/watch?v=8mQAYeozl5I
-* A journey of hunting macOS kernel vulnerability by Peter NGUYỄN Vũ Hoàng - https://github.com/star-sg/Presentations/blob/main/Zer0Con%202022/A%20Journey%20Of%20Hunting%20macOS%20kernel.pptx
+* Life and death of an iOS attacker by [Luca Todesco](https://twitter.com/qwertyoruiopz) - [https://www.youtube.com/watch?v=8mQAYeozl5I](https://www.youtube.com/watch?v=8mQAYeozl5I)
+* A journey of hunting macOS kernel vulnerability by Peter NGUYỄN Vũ Hoàng - [https://github.com/star-sg/Presentations/blob/main/Zer0Con%202022/A%20Journey%20Of%20Hunting%20macOS%20kernel.pptx](https://github.com/star-sg/Presentations/blob/main/Zer0Con%202022/A%20Journey%20Of%20Hunting%20macOS%20kernel.pptx)
