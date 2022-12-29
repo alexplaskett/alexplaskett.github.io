@@ -8,9 +8,7 @@ In the past few years I created some twitter threads (e.g. [Windows Kernel Secur
 
 In this post I will cover some of the presentations I found most interesting from a macOS/iOS kernel security research perspective in 2022.  
 
-# macOS/iOS Kernel Security
-
-## Apple Neural Engine from POC 2022 ([@_simo36](https://twitter.com/_simo36))
+# Apple Neural Engine from POC 2022 ([@_simo36](https://twitter.com/_simo36))
 
 [https://github.com/0x36/weightBufs/blob/main/attacking_ane_poc2022.pdf](https://github.com/0x36/weightBufs/blob/main/attacking_ane_poc2022.pdf)
 
@@ -22,7 +20,7 @@ The talk then moves into exploitation and building an arbitrary r/w primitive by
 
 He also release the exploit for it [here](https://github.com/0x36/weightBufs)
 
-## Tales from the iOS/macOS Kernel Trenches from Zer0con 2022 ([@jaakerblom](https://twitter.com/jaakerblom))
+# Tales from the iOS/macOS Kernel Trenches from Zer0con 2022 ([@jaakerblom](https://twitter.com/jaakerblom))
 
 [https://github.com/potmdehex/slides/blob/main/Zer0Con_2022_Tales_from_the_iOS_macOS_Kernel_Trenches.pdf](https://github.com/potmdehex/slides/blob/main/Zer0Con_2022_Tales_from_the_iOS_macOS_Kernel_Trenches.pdf)
 
@@ -56,7 +54,7 @@ The next section details exploitation of the following CVE's:
 
 The final section focuses on recent kernel mitigations on iOS 15.2-15.5 and how these can hinder an attacker. 
  
-## Understanding Mach IPC from MOSEC 2022 ([@realBrightiup](https://twitter.com/realBrightiup/))
+# Understanding Mach IPC from MOSEC 2022 ([@realBrightiup](https://twitter.com/realBrightiup/))
 
 [https://github.com/brightiup/Trekking/tree/main/Slides](https://github.com/brightiup/Trekking/tree/main/Slides)
 
@@ -70,7 +68,7 @@ The talk then coverts the background knowledge of mach ports and IPC (and how ri
 
 I am not going to cover this one in detail, as Mach IPC is complex and the slides do a much better job of explaining it than I could. 
 
-## AppleAVD from Hexacon 2022 ([@isciurus](https://twitter.com/isciurus/) [@NikitaTarakanov](https://twitter.com/NikitaTarakanov/)) 
+# AppleAVD from Hexacon 2022 ([@isciurus](https://twitter.com/isciurus/) [@NikitaTarakanov](https://twitter.com/NikitaTarakanov/)) 
 
 [https://github.com/isciurus/hexacon2022_AppleAVD/blob/main/hexacon2022_AppleAVD.pdf](https://github.com/isciurus/hexacon2022_AppleAVD/blob/main/hexacon2022_AppleAVD.pdf)
 
@@ -82,7 +80,7 @@ They then talk about the process of fuzzing the decoders.
 
 At the time of writing it seemed they didn't find any vulnerabilities within the decoder implementation themselves from fuzzing. However, they identified [CVE-2022-46694](https://support.apple.com/en-us/HT213530) a vulnerability within the outer kext logic which has now been patched by Apple. 
 
-## Fugu15 - A deep dive into iOS 15 exploitation at OBTS ([@LinusHenze](https://twitter.com/LinusHenze/))
+# Fugu15 - A deep dive into iOS 15 exploitation at OBTS ([@LinusHenze](https://twitter.com/LinusHenze/))
 
 This talk covers the creation of a jailbreak for iOS 15 (including 15.2 and up). Creation of a jailbreak has become significantly more difficult where one kernel vulnerability was previously enough, now PAC and PPL bypasses are required as well. The talk describes the vulnerabilities used in Fugu15, how the kernel exploit works and PAC and PPL bypasses. It also covers new mitigations introduced in 15.2, what effect these have on jailbreaking and how these were bypassed in Fugu15. 
 
@@ -92,7 +90,7 @@ This talk covers the creation of a jailbreak for iOS 15 (including 15.2 and up).
 
 Notes on the four vulnerabilities used were as follows:
 
-### fastPath (code signing bypass)
+## fastPath (code signing bypass)
  * CMS signed by a certificate
  * CoreTrust ensures that CMS blob is valid and that hash matches code signature
  * Returns flags to AMFI to indicate cert type.
@@ -111,7 +109,7 @@ The code for this exploit is [here](https://github.com/pinauten/Fugu15/tree/mast
 
 This gets arb code exec on the device. 
 
-### oobPCI (arbitrary kernel r/w)
+## oobPCI (arbitrary kernel r/w)
 
 * Vuln in DriverKit (drivers in userspace). 
 * Code signature bypass to grant the DriverKit entitlement. 
@@ -128,7 +126,7 @@ However, on 15.2+ there are still mitigations which hinder full usage of the arb
 
 The code for this exploit is [here](https://github.com/pinauten/Fugu15/tree/master/Exploits/oobPCI)
 
-### badRecovery (CFI/PAC bypass)
+## badRecovery (CFI/PAC bypass)
 
 A CFI/PAC bypass via thread fault handlers (CVE-2022-26765). 
 
@@ -140,7 +138,7 @@ Linus identified a function where it does a normal return and not an authenticat
 
 I won't go into the details of the exploitation here, as the process of exploitation is well explained within the video recording. 
 
-### tlbFail (PPL bypass)
+## tlbFail (PPL bypass)
 
 PPL bypass via improper TLB flush
 
@@ -163,7 +161,7 @@ The question is what happens in the case of a PPL TLB flush? He then manages to 
 
 The talk finishes off by demo'ing the exploit. 
 
-## The Journey To Hybrid Apple Driver Fuzzing from POC 2022 ([@Peterpan0927](https://twitter.com/Peterpan0927/))
+# The Journey To Hybrid Apple Driver Fuzzing from POC 2022 ([@Peterpan0927](https://twitter.com/Peterpan0927/))
 
 [https://github.com/star-sg/Presentations/blob/main/POC%202022/Zhenpeng%20Pan.pdf](https://github.com/star-sg/Presentations/blob/main/POC%202022/Zhenpeng%20Pan.pdf)
 
@@ -177,7 +175,7 @@ Finally he covered some details of non public bugs found by the fuzzer and futur
 
 This talk was interesting for me, as back in 2017 [slides](https://github.com/alexplaskett/Publications/blob/master/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf) I developed a fuzzer using similar hybrid approaches which was also effective in finding multiple issues in the kernel. However, this talk highlights recent vuln's found and the code patterns which can be implemented in the fuzzer or reviewed for to find.   
 
-## Abusing iPhone coprocessors for Privilege Escalation at OBTS ([@i41nbeer](https://twitter.com/i41nbeer/))
+# Abusing iPhone coprocessors for Privilege Escalation at OBTS ([@i41nbeer](https://twitter.com/i41nbeer/))
 
 [Youtube video](https://www.youtube.com/watch?v=H5oz1U03U1Q)
 
