@@ -4,7 +4,7 @@ title:  KASAN Info Leak Detection
 categories: [Apple,XNU]
 ---
 
-In my previous blog post I dug into a general overview of the [KASAN implementation in XNU](http://127.0.0.1:4000/macos-kasan/). This post goes more in depth in detecting kernel uninitialized information leaks using it (no 0days dropped here :)). Kernel Information Leaks to userland are a common problem and can be used to leak confidential information or disclose kernel memory addresses which are typically used to bypass KASLR. An example of this type of vulnerability is [CVE-2017-13868](https://bazad.github.io/2018/03/a-fun-xnu-infoleak/). 
+In my previous blog post I dug into a general overview of the [KASAN implementation in XNU](https://alexplaskett.github.io/macos-kasan/). This post goes more in depth in detecting kernel uninitialized information leaks using it (no 0days dropped here :)). Kernel Information Leaks to userland are a common problem and can be used to leak confidential information or disclose kernel memory addresses which are typically used to bypass KASLR. An example of this type of vulnerability is [CVE-2017-13868](https://bazad.github.io/2018/03/a-fun-xnu-infoleak/). 
 
 We can see within the XNU KASAN sources that attempts have been made to detect these types of issues when running the instrumented kernel build.
 
