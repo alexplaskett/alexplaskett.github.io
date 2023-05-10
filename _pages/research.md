@@ -8,7 +8,7 @@ The following security research was performed whilst at NCC Group between 2021-n
 
 ## Your Not so “Home” Office – Soho Hacking at Pwn2Own
 
-Alex Plaskett and McCaulay Hudson presented this talk at HITB AMS on the 20th April 2023. The talk showcased NCC Exploit Development Group (EDG) in Pwn2Own 2022 Toronto targeting all consumer routers (Netgear, TP-Link and Synology) from both a LAN and WAN perspective.  The talk also described how we compromised a small business device (Ubiquiti) via the WAN and used that to pivot to attack a device on the LAN (a printer). In total we created 7 different exploit chains and found many more vulnerabilities within the process.
+On the 20th April 2023, Alex Plaskett and McCaulay Hudson presented this talk at HITB AMS. The talk showcased NCC EDG in Pwn2Own 2022 Toronto targeting all consumer routers (Netgear, TP-Link and Synology) from both a LAN and WAN perspective.  The talk also described how we compromised a small business device (Ubiquiti) via the WAN and used that to pivot to attack a device on the LAN (a printer). In total we created 7 different exploit chains and found many more vulnerabilities within the process.
 
 [Slides](https://research.nccgroup.com/wp-content/uploads/2023/04/D1T1-Your-Not-So-Home-Office-Soho-Hacking-at-Pwn2Own-McCaulay-Hudson-Alex-Plaskett.pdf)
 
