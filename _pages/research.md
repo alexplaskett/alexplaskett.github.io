@@ -6,6 +6,14 @@ permalink: /research/
 
 The following security research was performed whilst at NCC Group between 2021-now. 
 
+## Your Not so “Home” Office – Soho Hacking at Pwn2Own
+
+Alex Plaskett and McCaulay Hudson presented this talk at HITB AMS on the 20th April 2023. The talk showcased NCC Exploit Development Group (EDG) in Pwn2Own 2022 Toronto targeting all consumer routers (Netgear, TP-Link and Synology) from both a LAN and WAN perspective.  The talk also described how we compromised a small business device (Ubiquiti) via the WAN and used that to pivot to attack a device on the LAN (a printer). In total we created 7 different exploit chains and found many more vulnerabilities within the process.
+
+[Slides](https://research.nccgroup.com/wp-content/uploads/2023/04/D1T1-Your-Not-So-Home-Office-Soho-Hacking-at-Pwn2Own-McCaulay-Hudson-Alex-Plaskett.pdf)
+
+This research was performed by Alex Plaskett, Cedric Halbronn, Aaron Adams, McCaulay Hudson and presented at [HITB AMS 2023](https://conference.hitb.org/hitbsecconf2023ams/).
+
 ## Toner Deaf – Printing your next persistence
 
 In November 2021, NCC Group won at the Pwn2Own hacking contest against a Lexmark printer. This talk is about the journey from purchase of the printer, having zero knowledge of its internals, remotely compromising it using a vulnerability which affected 235 models, developing a persistence mechanism and more.
