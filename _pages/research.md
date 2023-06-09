@@ -12,6 +12,8 @@ On the 20th April 2023, Alex Plaskett and McCaulay Hudson presented this talk at
 
 [Slides](https://research.nccgroup.com/wp-content/uploads/2023/04/D1T1-Your-Not-So-Home-Office-Soho-Hacking-at-Pwn2Own-McCaulay-Hudson-Alex-Plaskett.pdf)
 
+[Video](https://www.youtube.com/watch?v=vvUrSHLsNxI)
+
 This research was performed by Alex Plaskett, Cedric Halbronn, Aaron Adams, McCaulay Hudson and presented at [HITB AMS 2023](https://conference.hitb.org/hitbsecconf2023ams/).
 
 ## Toner Deaf – Printing your next persistence
