@@ -6,6 +6,24 @@ permalink: /research/
 
 The following security research was performed whilst at NCC Group between 2021-now. 
 
+## Exploit Engineering – Attacking the Linux Kernel
+
+On the 19th of May 2023, Alex Plaskett and Cedric Halbronn presentered this talk at Offensivecon 2023 in Berlin. 
+
+[Slides](https://research.nccgroup.com/wp-content/uploads/2023/05/exploit-engineering-linux-kernel.pdf)
+
+[Video](https://www.youtube.com/watch?v=9wgHENj_YNk)
+
+The abstract from the talk was as follows:
+
+Over the last year the Exploit Development Group (EDG) at NCC Group found and exploited three different 0-day Linux kernel local privilege escalation vulnerabilities (CVE-2022-0185, CVE-2022-0995, CVE-2022-32250) against fully patched OSs with all mitigations enabled. The most recent vulnerability was patched against versions of the kernel going back 6 years affecting most stable Linux distributions.
+
+Unlike developing proof of concepts, our exploits need to be ultra-reliable and support many different OS variations and kernel versions so they can be used by our security assessment consultants or Red Teams. This calls for a much more rigorous engineering process to be followed.
+
+In this talk, we start with an overview of our bug hunting processes and approach to rapidly find high impact vulnerabilities within the Linux kernel. The talk will then describe key vulnerability details, discuss the challenges of reliable exploitation across multiple targets and describe the exploitation techniques used (and what is appropriate in 2023). We discuss rigorous exploit engineering approaches – including tooling which we have developed for heap analysis (libslub) and automation for mining, creation, deployment and scaling across many different environments (TargetMob). Finally, we will conclude with our thoughts on areas where more strategic hardening and attack surface reduction can be introduced to hinder against advanced attackers using 0-days in the Linux kernel. We will leave you with a release of our tooling for heap analysis (libslub) and the knowledge to go out there and find, analyse and exploit your own Linux kernel vulnerabilities!
+
+This research was performed by Alex Plaskett, Cedric Halbronn, Aaron Adams and presented at [Offensivecon 23](https://www.offensivecon.org/speakers/2023/alex-plaskett-and-cedric-halbronn.html).
+
 ## Your Not so “Home” Office – Soho Hacking at Pwn2Own
 
 On the 20th April 2023, Alex Plaskett and McCaulay Hudson presented this talk at HITB AMS. The talk showcased NCC EDG in Pwn2Own 2022 Toronto targeting all consumer routers (Netgear, TP-Link and Synology) from both a LAN and WAN perspective.  The talk also described how we compromised a small business device (Ubiquiti) via the WAN and used that to pivot to attack a device on the LAN (a printer). In total we created 7 different exploit chains and found many more vulnerabilities within the process.
