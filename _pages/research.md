@@ -6,6 +6,28 @@ permalink: /research/
 
 The following security research was performed whilst at NCC Group between 2021-now. 
 
+## Listen-Up: Sonos Over-The-Air Remote Kernel Exploitation and Covert Wiretap
+
+On the 8th of August 2024, Alex Plaskett and Robert Herrera presented this talk at BlackHat 2024 in Las Vegas, USA. 
+
+[Slides](https://i.blackhat.com/BH-US-24/Presentations/US-24-Herrera-Listen-Up-Sonos-Over-The-Air-Exploitation-and-Covert-Wiretap-Thursday.pdf)
+
+[Whitepaper](https://www.nccgroup.com/media/uzbp3ttw/bhus24_sonos_whitepaper.pdf)
+
+The abstract of the talk was as follows:
+
+Over the last year NCC Group found and exploited many different vulnerabilities within Sonos devices. This led to an entire break in the security of Sonos's secure boot process across a wide range of devices and remotely being able to compromise several devices over the air.
+
+We leveraged these vulnerabilities to perform hidden recordings of the microphone to demonstrate how a remote attacker could be able to obtain covert audio capture from Sonos devices.
+
+In this talk, we will start off with an introduction to Sonos devices, and describe the device architecture and security controls implemented (such as secure boot and disk encryption).
+
+Then we will move into a deep dive on the Wi-Fi driver architecture and attack surface on the Sonos One. The talk will then describe a vulnerability we identified in the WPA2 Handshake which can allow a remote attacker to compromise the kernel over the air.
+
+The talk will then move to the exploitation of this issue and discuss the novel challenges of developing a remote kernel exploit. To wrap up this section, we will then perform a demo of the attack where we will turn the device into a wiretap capturing all the audio within the physical proximity of the compromised device.
+
+Finally, we will discuss vulnerabilities and exploitation techniques that allowed us to develop the world's first "jailbreak" of Sonos's flagship device - the Era-100 by breaking the secure boot chain. This affected 23 Sonos products and allowed the extraction of cryptographic material.
+
 ## Exploit Engineering – Attacking the Linux Kernel
 
 On the 19th of May 2023, Alex Plaskett and Cedric Halbronn presentered this talk at Offensivecon 2023 in Berlin. 
