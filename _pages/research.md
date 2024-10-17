@@ -6,6 +6,29 @@ permalink: /research/
 
 The following security research was performed whilst at NCC Group between 2021-now. 
 
+## Revving Up: The Journey to Pwn2Own Automotive 2024
+
+On the 28th of September, Alex Plaskett and McCaulay Hudson presented this talk at ROMHack, Italy. 
+
+[Slides](https://www.nccgroup.com/media/h41lavk2/romhack-revving-up_the-journey-to-pwn2own-automotive-2024.pdf)
+
+[Video](https://www.youtube.com/watch?app=desktop&v=43ngR6j8en8)
+
+The abstract of the talk was follows:
+
+Throughout this presentation we will describe our process with a deep dive into in-vehicle entertainment systems and an electric vehicle (EV) charger controller (Phoenix Contact CHARX SEC-3100).
+
+We will reveal multiple zero-day vulnerabilities which were used to compromise these devices. EV charging security is currently a hot topic where there is expected to be over 3 million charging stations in Europe at the end of 2024 and continuously expanding.
+However, most importantly we will describe our methodology and approach, allowing aspiring bug hunters to understand the trials and tribulations of vulnerability research against automotive targets. This will also allow vendors to see the amount of effort vulnerability researchers take to compromise these devices.
+
+Our talk will include attack surface research and how we priorities finding vulnerable areas. We will also demonstrate tooling we use to speed up and automate the process. We will discuss both hardware and software attacks and the need to first perform hardware attacks to gain an understanding of the target before software only exploits could be developed to obtain remote code execution. 
+
+For fun we will also demonstrate both a light show on the CHARX device and porting and running DOOM on the Alpine IVI.
+
+Briefly we will discuss our failures and lessons learned, to show that not everything was plain sailing with the research.
+
+Finally, we will wrap up with conclusions and guidance to both automotive manufacturers and prospective hacking competition participants.
+
 ## Listen-Up: Sonos Over-The-Air Remote Kernel Exploitation and Covert Wiretap
 
 On the 8th of August 2024, Alex Plaskett and Robert Herrera presented this talk at BlackHat 2024 in Las Vegas, USA. 
