@@ -29,6 +29,30 @@ Briefly we will discuss our failures and lessons learned, to show that not every
 
 Finally, we will wrap up with conclusions and guidance to both automotive manufacturers and prospective hacking competition participants.
 
+## Charging Ahead: Exploiting an EV Charger Controller at Pwn2Own Automotive 2024
+
+On the 18th of September 2024, McCaulay Hudson and Alex Plaskett presented this talk at 44CON, London. 
+
+[Slides](https://www.nccgroup.com/media/iacnw3z5/44con-exploiting-an-ev-charger-controller-at-pwn2own-2024.pdf)
+
+The full abstract for the talk is as follows:
+
+Brace yourselves for an electrifying journey into the world of automotive cybersecurity. Our talk will unveil how we exploited multiple zero-day vulnerabilities to compromise an electric vehicle (EV) charger controller during the Pwn2Own competition.
+
+At the end of March 2024, there were 59,000 EV charging points across the UK (a 47% increase since 2023) and expected to grow significantly with the push to electric vehicles, with this comes serious security challenges.
+
+In the talk we will discuss our methodology, attack surface analysis, and demonstrate tooling which we have created to speed up finding vulnerabilities in firmware and how we applied this to a specific EV charger controller. EV chargers overall have a wide range of features and wide-ranging connectivity leading to significant attack surfaces.
+
+We will discuss our journey from having zero knowledge of the specific target (Phoenix Contact CHARX SEC-3100) to remotely compromising it, perform privilege escalation and more.
+
+We will dive into the intricacies of this “build you own” charging component on how this enables deployment of charging infrastructure.
+
+We will discuss weaknesses with uploading arbitrary file contents, state switching, and injection techniques to build an exploit chain which was eligible for the Pwn2Own competition. The audience will gain an understanding of how multiple seemingly low-risk vulnerabilities can be chained together to escalate their impact, leading to code execution on the charger controller and demonstrating real world impact.
+
+We will wrap up with an overview of EV charger post-exploitation and outline some threat scenarios and impacts which could occur if an attacker was to compromise these devices and maintain persistence. In this presentation we will have multiple demos, including demonstration of tooling and exploits against the device to obtain a shell. For fun we will also show a lightshow running on the EV charger demonstrating full control of the device. 
+
+Finally, we will conclude with our thoughts on building a robust security architecture for EV charging deployments.
+
 ## Listen-Up: Sonos Over-The-Air Remote Kernel Exploitation and Covert Wiretap
 
 On the 8th of August 2024, Alex Plaskett and Robert Herrera presented this talk at BlackHat 2024 in Las Vegas, USA. 
